@@ -1,1108 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akbar Khan | Live Percussionist | Octapad &amp; Dhol Artist</title>
-  <meta name="description" content="Book Akbar Khan for weddings, birthday parties, live music shows, private events and celebrations. Professional Octapad, Dhol and live percussion performances." />
-  <meta name="keywords" content="Akbar Khan, live percussionist, Octapad artist, Dhol player, wedding music, birthday party entertainment, live percussion, Indian musician, event booking" />
-  <meta name="author" content="Akbar Khan" />
-  <meta property="og:title" content="Akbar Khan | Live Percussionist | Octapad &amp; Dhol Artist" />
-  <meta property="og:description" content="Book Akbar Khan for weddings, birthday parties, live music shows, private events and celebrations." />
+  <meta name="description" content="Akbar — Musician, Percussionist and Live Performer. Available for weddings, concerts, private events, corporate events and special celebrations." />
+  <meta name="theme-color" content="#0D0D0D" />
+  <meta property="og:title" content="Akbar — Musician | Percussionist | Live Performer" />
+  <meta property="og:description" content="Turning rhythm into an experience. Book Akbar for your next event." />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Akbar Khan | Live Percussionist" />
-  <meta name="theme-color" content="#0a0804" />
+  <meta property="og:image" content="images/hero.jpg" />
+  <title>Akbar — Musician | Percussionist | Live Performer</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" crossorigin />
-
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css?v=20261003" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="loading" data-scroll>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ══════════════════════════════════════
-       CUSTOM CURSOR
-  ══════════════════════════════════════ -->
+  <!-- Custom Cursor -->
   <div class="cursor" id="cursor" aria-hidden="true">
-    <div class="cursor__inner"></div>
-    <div class="cursor__text" id="cursorText"></div>
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+    <span class="cursor__label"></span>
   </div>
 
-  <!-- ══════════════════════════════════════
-       LOADING SCREEN
-  ══════════════════════════════════════ -->
-  <div class="loader" id="loader" role="status" aria-label="Loading Akbar Khan website">
-    <div class="loader__content">
-      <div class="loader__name">AKBAR KHAN</div>
-      <div class="loader__subtitle">LIVE PERCUSSIONIST</div>
-      <div class="loader__bar">
-        <div class="loader__progress" id="loaderProgress"></div>
-      </div>
-      <div class="loader__rhythm" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__name">AKBAR</span>
+      <div class="preloader__line"><span></span></div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       NAVIGATION
-  ══════════════════════════════════════ -->
-  <header class="nav" id="nav" role="banner">
-    <nav class="nav__container" aria-label="Main navigation">
-      <a href="#home" class="nav__logo" aria-label="Akbar Khan - Home">
-        <span class="nav__logo-main">AKBAR KHAN</span>
-        <span class="nav__logo-sub">LIVE PERCUSSIONIST</span>
-      </a>
-
-      <ul class="nav__links" id="navLinks" role="list">
-        <li><a href="#home" class="nav__link" aria-label="Home section">HOME</a></li>
-        <li><a href="#about" class="nav__link" aria-label="About section">ABOUT</a></li>
-        <li><a href="#instruments" class="nav__link" aria-label="Instruments section">INSTRUMENTS</a></li>
-        <li><a href="#events" class="nav__link" aria-label="Events section">EVENTS</a></li>
-        <li><a href="#gallery" class="nav__link" aria-label="Gallery section">GALLERY</a></li>
-        <li><a href="#videos" class="nav__link" aria-label="Videos section">VIDEOS</a></li>
-        <li><a href="#contact" class="nav__link" aria-label="Contact section">CONTACT</a></li>
-      </ul>
-
-      <a href="#booking" class="nav__cta btn btn--gold" aria-label="Book Akbar Khan">BOOK NOW</a>
-
-      <button class="nav__hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+  <!-- Navigation -->
+  <header class="nav-wrap" id="nav-wrap">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="nav__logo" href="#home" aria-label="Akbar home">AKBAR</a>
+      <div class="nav__links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
-
-    <!-- Mobile Drawer -->
-    <div class="nav__drawer" id="navDrawer" aria-hidden="true">
-      <ul class="nav__drawer-links" role="list">
-        <li><a href="#home" class="nav__drawer-link">HOME</a></li>
-        <li><a href="#about" class="nav__drawer-link">ABOUT</a></li>
-        <li><a href="#instruments" class="nav__drawer-link">INSTRUMENTS</a></li>
-        <li><a href="#events" class="nav__drawer-link">EVENTS</a></li>
-        <li><a href="#gallery" class="nav__drawer-link">GALLERY</a></li>
-        <li><a href="#videos" class="nav__drawer-link">VIDEOS</a></li>
-        <li><a href="#contact" class="nav__drawer-link">CONTACT</a></li>
-        <li><a href="#booking" class="nav__drawer-link nav__drawer-link--cta">BOOK NOW</a></li>
-      </ul>
-    </div>
   </header>
 
-  <main id="main-content">
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <nav aria-label="Mobile navigation">
+        <a href="#home" class="mobile-menu__link">Home</a>
+        <a href="#about" class="mobile-menu__link">About</a>
+        <a href="#experience" class="mobile-menu__link">Experience</a>
+        <a href="#gallery" class="mobile-menu__link">Gallery</a>
+        <a href="#media" class="mobile-menu__link">Media</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
+      </nav>
+      <a class="btn btn--amber mobile-menu__book" href="#contact">BOOK AKBAR</a>
+    </div>
+  </div>
 
-    <!-- ══════════════════════════════════════
-         HERO SECTION
-    ══════════════════════════════════════ -->
-    <section class="hero" id="home" aria-label="Hero - Akbar Khan Live Percussionist">
+  <main id="main">
 
-      <!-- Background -->
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true">
-        <div class="hero__bg-image" id="heroBg"></div>
-        <div class="hero__bg-overlay"></div>
-        <div class="hero__particles" id="particles" aria-hidden="true"></div>
-        <div class="hero__gold-sweep" aria-hidden="true"></div>
-      </div>
-
-      <!-- Rhythm Lines Decoration -->
-      <div class="hero__rhythm-lines" aria-hidden="true">
-        <div class="hero__rhythm-line"></div>
-        <div class="hero__rhythm-line"></div>
-        <div class="hero__rhythm-line"></div>
-      </div>
-
-      <div class="hero__content">
-        <div class="hero__eyebrow" data-hero-el="eyebrow">
-          <span class="hero__dot" aria-hidden="true"></span>
-          LIVE PERCUSSIONIST &nbsp;•&nbsp; MUSICIAN &nbsp;•&nbsp; PERFORMER
-          <span class="hero__dot" aria-hidden="true"></span>
+        <div class="hero__img-wrap">
+          <img src="images/hero.jpg" alt="Akbar — musician and live performer" class="hero__img" fetchpriority="high" />
         </div>
-
-        <h1 class="hero__name" data-hero-el="name">
-          <span class="hero__name-line" aria-hidden="true">AKBAR</span>
-          <span class="hero__name-line hero__name-line--gold" aria-hidden="true">KHAN</span>
-          <span class="sr-only">AKBAR KHAN</span>
-        </h1>
-
-        <p class="hero__tagline" data-hero-el="tagline">
-          Feel the Beat. <em>Experience the Energy.</em>
+        <div class="hero__overlay"></div>
+        <div class="hero__grain"></div>
+      </div>
+      <div class="hero__content shell">
+        <p class="hero__eyebrow">
+          <span>MUSICIAN</span><i aria-hidden="true"> • </i><span>PERCUSSIONIST</span><i aria-hidden="true"> • </i><span>LIVE PERFORMER</span>
         </p>
-
-        <p class="hero__description" data-hero-el="desc">
-          From powerful Octapad performances to traditional Dhol rhythms, Akbar Khan brings
-          electrifying live music and unforgettable energy to every event.
-        </p>
-
-        <div class="hero__ctas" data-hero-el="ctas">
-          <a href="#booking" class="btn btn--gold btn--lg btn--magnetic" aria-label="Book Akbar Khan for your event">
-            <span>BOOK AKBAR KHAN</span>
-            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#videos" class="btn btn--outline btn--lg" aria-label="Watch Akbar Khan's performance">
-            <svg class="btn__play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-            WATCH PERFORMANCE
-          </a>
+        <h1 class="hero__title" id="hero-title">AKBAR</h1>
+        <p class="hero__tagline">Turning rhythm into an experience.</p>
+        <div class="hero__actions">
+          <a class="btn btn--amber" href="#contact">BOOK AKBAR</a>
+          <a class="btn btn--ghost" href="#about">EXPLORE MY WORK</a>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
-      <div class="hero__scroll" aria-label="Scroll to explore">
-        <div class="hero__scroll-line" aria-hidden="true"></div>
+      <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-text">SCROLL TO EXPLORE</span>
-        <div class="hero__scroll-arrow" aria-hidden="true">↓</div>
+        <span class="hero__scroll-arrow">↓</span>
       </div>
-
-      <!-- Sound Toggle -->
-      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound (currently muted)" aria-pressed="false">
-        <svg class="sound-icon sound-icon--off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-        <svg class="sound-icon sound-icon--on" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:none">
-          <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span>♪ SOUND ON</span>
-      </button>
     </section>
 
-    <!-- ══════════════════════════════════════
-         ABOUT SECTION
-    ══════════════════════════════════════ -->
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="about__inner">
-
-          <!-- Image Side -->
-          <div class="about__visual" data-reveal="left">
-            <div class="about__image-wrap" data-cursor="EXPLORE">
-              <div class="about__image" role="img" aria-label="Akbar Khan live percussion performance on stage"></div>
-              <div class="about__image-frame" aria-hidden="true"></div>
-              <div class="about__image-label" aria-hidden="true">
-                <span class="about__image-label-dot"></span>
-                LIVE ON STAGE
-              </div>
-            </div>
-            <div class="about__decor" aria-hidden="true">
-              <div class="about__decor-circle"></div>
-              <div class="about__decor-line"></div>
-            </div>
-          </div>
-
-          <!-- Text Side -->
-          <div class="about__text" data-reveal="right">
-            <div class="section-eyebrow">THE ARTIST</div>
-            <h2 class="section-heading" id="about-heading">
-              The Rhythm<br/>
-              <em>Behind the Energy</em>
-            </h2>
-
-            <p class="about__body">
-              Akbar Khan is a passionate live percussionist known for bringing rhythm, energy and
-              excitement to every performance. With expertise in Octapad, Dhol and multiple
-              percussion instruments, he creates performances that connect with audiences and turn
-              ordinary celebrations into unforgettable experiences.
-            </p>
-            <p class="about__body">
-              Whether it's an intimate birthday celebration, a grand wedding, a live music show or
-              a private event, Akbar Khan adapts each performance to match the atmosphere, audience
-              and occasion.
-            </p>
-
-            <div class="about__line" aria-hidden="true"></div>
-
-            <div class="about__stats" role="list">
-              <div class="about__stat" role="listitem">
-                <div class="about__stat-number about__stat-number--word">OCTAPAD</div>
-                <div class="about__stat-label">Modern percussion</div>
-              </div>
-              <div class="about__stat" role="listitem">
-                <div class="about__stat-number about__stat-number--word">DHOL</div>
-                <div class="about__stat-label">Traditional rhythm</div>
-              </div>
-              <div class="about__stat" role="listitem">
-                <div class="about__stat-number about__stat-number--word">MULTIPLE</div>
-                <div class="about__stat-label">Event styles</div>
-              </div>
-              <div class="about__stat" role="listitem">
-                <div class="about__stat-number about__stat-number--word">LIVE</div>
-                <div class="about__stat-label">Performance energy</div>
-              </div>
-            </div>
-
-            <a href="#booking" class="btn btn--gold btn--magnetic" aria-label="Book Akbar Khan">
-              <span>BOOK A PERFORMANCE</span>
-              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+    <!-- INTRO -->
+    <section class="intro section" id="about" aria-labelledby="intro-title">
+      <div class="shell intro__grid">
+        <div class="intro__text reveal-up">
+          <p class="label">01 — THE ARTIST</p>
+          <h2 id="intro-title">RHYTHM IS MORE<br/>THAN SOUND.<br/><em>IT'S AN EXPERIENCE.</em></h2>
+          <p class="intro__para">
+            Akbar is a versatile musician and live performer known for bringing energy, rhythm and personality to every performance. Whether commanding a wedding stage with the thundering pulse of Dhol or delivering a modern electronic groove on Octapad, Akbar shapes each performance around the occasion, the audience and the energy in the room.
+          </p>
+          <p class="intro__para">
+            A dedicated artist with a deep love for rhythm, Akbar brings professionalism, passion and an unmistakable stage presence to every event — from intimate celebrations to large-scale live productions.
+          </p>
+          <a class="text-link" href="#contact">Book a Performance <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="intro__img-wrap reveal-clip">
+          <img src="images/portrait.jpg" alt="Akbar — portrait of the artist" class="intro__img" loading="lazy" />
         </div>
       </div>
-
-      <div class="section-bg-number" aria-hidden="true">01</div>
     </section>
 
-    <!-- ══════════════════════════════════════
-         INSTRUMENTS SECTION
-    ══════════════════════════════════════ -->
-    <section class="instruments" id="instruments" aria-labelledby="instruments-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">CRAFTED BY SOUND</div>
-          <h2 class="section-heading" id="instruments-heading">
-            The Sound of<br/><em>Akbar Khan</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
+    <!-- SKILLS -->
+    <section class="skills section" id="skills" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="skills__head reveal-up">
+          <p class="label">02 — DISCIPLINES</p>
+          <h2 id="skills-title">WHAT I PLAY</h2>
         </div>
-
-        <div class="instruments__grid">
-
-          <article class="instrument-card" data-cursor="EXPLORE" tabindex="0" aria-label="Octapad - Modern electronic percussion">
-            <div class="instrument-card__number" aria-hidden="true">01</div>
-            <div class="instrument-card__image instrument-card__image--octapad" role="img" aria-label="Electronic percussion performance placeholder"></div>
-            <div class="instrument-card__content">
-              <div class="instrument-card__wave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <h3 class="instrument-card__name">OCTAPAD</h3>
-              <p class="instrument-card__desc">Modern electronic percussion with powerful, dynamic sounds perfect for live performances and high-energy events.</p>
+        <div class="skills__list">
+          <article class="skill-item reveal-up" tabindex="0">
+            <div class="skill-item__bg" style="background-image:url('images/octapad.jpg')" aria-hidden="true"></div>
+            <span class="skill-item__num" aria-hidden="true">01</span>
+            <div class="skill-item__body">
+              <h3>OCTAPAD</h3>
+              <p>Modern electronic percussion with powerful rhythm and dynamic live performance — precise, punchy and full of energy.</p>
             </div>
-            <div class="instrument-card__gold-line" aria-hidden="true"></div>
+            <span class="skill-item__arrow" aria-hidden="true">↗</span>
           </article>
-
-          <article class="instrument-card" data-cursor="EXPLORE" tabindex="0" aria-label="Dhol - Traditional Indian percussion">
-            <div class="instrument-card__number" aria-hidden="true">02</div>
-            <div class="instrument-card__image instrument-card__image--dhol" role="img" aria-label="Dhol performance placeholder"></div>
-            <div class="instrument-card__content">
-              <div class="instrument-card__wave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <h3 class="instrument-card__name">DHOL</h3>
-              <p class="instrument-card__desc">Traditional Indian percussion bringing raw energy and celebration to weddings, festivals and events across every culture.</p>
+          <article class="skill-item reveal-up" tabindex="0">
+            <div class="skill-item__bg" style="background-image:url('images/dhol.jpg')" aria-hidden="true"></div>
+            <span class="skill-item__num" aria-hidden="true">02</span>
+            <div class="skill-item__body">
+              <h3>DHOL</h3>
+              <p>Traditional percussion combined with raw, energetic live performance — the heartbeat of every celebration.</p>
             </div>
-            <div class="instrument-card__gold-line" aria-hidden="true"></div>
+            <span class="skill-item__arrow" aria-hidden="true">↗</span>
           </article>
-
-          <article class="instrument-card" data-cursor="EXPLORE" tabindex="0" aria-label="Tabla - Classic Indian rhythm instrument">
-            <div class="instrument-card__number" aria-hidden="true">03</div>
-            <div class="instrument-card__image instrument-card__image--tabla" role="img" aria-label="Tabla performance placeholder"></div>
-            <div class="instrument-card__content">
-              <div class="instrument-card__wave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <h3 class="instrument-card__name">TABLA</h3>
-              <p class="instrument-card__desc">Classic Indian rhythm and intricate percussion technique — bringing soul and tradition to every musical performance.</p>
+          <article class="skill-item reveal-up" tabindex="0">
+            <div class="skill-item__bg" style="background-image:url('images/percussion.jpg')" aria-hidden="true"></div>
+            <span class="skill-item__num" aria-hidden="true">03</span>
+            <div class="skill-item__body">
+              <h3>PERCUSSION</h3>
+              <p>Rhythm-driven performance for different musical environments — adaptable, expressive and deeply felt.</p>
             </div>
-            <div class="instrument-card__gold-line" aria-hidden="true"></div>
+            <span class="skill-item__arrow" aria-hidden="true">↗</span>
           </article>
-
-          <article class="instrument-card" data-cursor="EXPLORE" tabindex="0" aria-label="DJ and Electronic Percussion">
-            <div class="instrument-card__number" aria-hidden="true">04</div>
-            <div class="instrument-card__image instrument-card__image--electronic" role="img" aria-label="Electronic live performance placeholder"></div>
-            <div class="instrument-card__content">
-              <div class="instrument-card__wave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <h3 class="instrument-card__name">DJ / ELECTRONIC</h3>
-              <p class="instrument-card__desc">Modern beats and electronic rhythm for high-energy performances — fusion sounds that excite every crowd.</p>
+          <article class="skill-item reveal-up" tabindex="0">
+            <div class="skill-item__bg" style="background-image:url('images/live.jpg')" aria-hidden="true"></div>
+            <span class="skill-item__num" aria-hidden="true">04</span>
+            <div class="skill-item__body">
+              <h3>LIVE PERFORMANCE</h3>
+              <p>High-energy performances for weddings, concerts, celebrations, private events and special occasions of every scale.</p>
             </div>
-            <div class="instrument-card__gold-line" aria-hidden="true"></div>
+            <span class="skill-item__arrow" aria-hidden="true">↗</span>
           </article>
-
-          <article class="instrument-card instrument-card--wide" data-cursor="EXPLORE" tabindex="0" aria-label="Other Percussion instruments">
-            <div class="instrument-card__number" aria-hidden="true">05</div>
-            <div class="instrument-card__image instrument-card__image--percussion" role="img" aria-label="Live percussion performance placeholder"></div>
-            <div class="instrument-card__content">
-              <div class="instrument-card__wave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <h3 class="instrument-card__name">OTHER PERCUSSION</h3>
-              <p class="instrument-card__desc">Multiple percussion instruments and rhythmic styles — each performance is tailored to the event, audience and musical journey.</p>
-            </div>
-            <div class="instrument-card__gold-line" aria-hidden="true"></div>
-          </article>
-
         </div>
       </div>
-
-      <div class="section-bg-number" aria-hidden="true">02</div>
     </section>
 
-    <!-- ══════════════════════════════════════
-         EVENTS SECTION
-    ══════════════════════════════════════ -->
-    <section class="events" id="events" aria-labelledby="events-heading">
-      <div class="events__bg-visual" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">EVERY OCCASION</div>
-          <h2 class="section-heading" id="events-heading">
-            Make Your Event<br/><em>Unforgettable</em>
-          </h2>
-          <p class="section-subtext">Looking for a powerful live percussion performance for your next celebration? Book Akbar Khan and bring unforgettable rhythm and energy to your event.</p>
-          <div class="section-heading-line" aria-hidden="true"></div>
+    <!-- FEATURE -->
+    <section class="feature" aria-label="Featured performance">
+      <div class="feature__bg" aria-hidden="true">
+        <img src="images/feature.jpg" alt="Akbar delivering a powerful live performance" class="feature__img" loading="lazy" />
+        <div class="feature__overlay"></div>
+      </div>
+      <div class="feature__content shell">
+        <h2 class="feature__heading reveal-up">LIVE.<br/>LOUD.<br/><em>UNFORGETTABLE.</em></h2>
+        <a class="feature__btn reveal-up" href="#media">
+          <span class="feature__btn-circle" aria-hidden="true">▶</span>
+          WATCH PERFORMANCE →
+        </a>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+      <div class="shell gallery__head reveal-up">
+        <p class="label">03 — GALLERY</p>
+        <h2 id="gallery-title">MOMENTS IN RHYTHM</h2>
+      </div>
+      <div class="gallery__grid" aria-label="Photo gallery">
+        <button class="gallery__item gallery__item--tall reveal-clip" data-src="images/gallery-1.jpg" data-index="0" aria-label="View photo 1">
+          <img src="images/gallery-1.jpg" alt="Akbar in traditional kurta — studio portrait" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item reveal-clip" data-src="images/gallery-2.jpg" data-index="1" aria-label="View photo 2">
+          <img src="images/gallery-2.jpg" alt="Akbar on stage in sunglasses" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item reveal-clip" data-src="images/gallery-3.jpg" data-index="2" aria-label="View photo 3">
+          <img src="images/gallery-3.jpg" alt="Akbar adjusting sunglasses" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item gallery__item--wide reveal-clip" data-src="images/gallery-4.jpg" data-index="3" aria-label="View photo 4">
+          <img src="images/gallery-4.jpg" alt="Akbar on a scooter at dusk" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item reveal-clip" data-src="images/gallery-5.jpg" data-index="4" aria-label="View photo 5">
+          <img src="images/gallery-5.jpg" alt="Akbar close-up portrait" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item gallery__item--tall reveal-clip" data-src="images/gallery-6.jpg" data-index="5" aria-label="View photo 6">
+          <img src="images/gallery-6.jpg" alt="Akbar during a night ride" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item reveal-clip" data-src="images/gallery-7.jpg" data-index="6" aria-label="View photo 7">
+          <img src="images/gallery-7.jpg" alt="Akbar on a concert stage" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+        <button class="gallery__item reveal-clip" data-src="images/gallery-8.jpg" data-index="7" aria-label="View photo 8">
+          <img src="images/gallery-8.jpg" alt="Akbar live under stage lights" loading="lazy" />
+          <span class="gallery__hover" aria-hidden="true"><span class="gallery__view-label">VIEW</span><span class="gallery__amber-line"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view" hidden>
+      <div class="lightbox__backdrop" id="lb-backdrop"></div>
+      <button class="lightbox__close" id="lb-close" aria-label="Close image viewer">✕</button>
+      <button class="lightbox__prev" id="lb-prev" aria-label="Previous image">‹</button>
+      <button class="lightbox__next" id="lb-next" aria-label="Next image">›</button>
+      <div class="lightbox__img-wrap">
+        <img src="" alt="" id="lb-img" class="lightbox__img" />
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section class="experience section" id="experience" aria-labelledby="exp-title">
+      <div class="shell">
+        <div class="experience__head reveal-up">
+          <p class="label">04 — EXPERIENCE</p>
+          <h2 id="exp-title">WHERE THE<br/>RHYTHM<br/><em>TAKES ME</em></h2>
         </div>
-
-        <div class="events__grid">
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">🎂</div>
-            <h3 class="event-card__title">BIRTHDAY PARTIES</h3>
-            <p class="event-card__desc">Add live beats and incredible energy to your birthday celebration — making it a night everyone remembers.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+        <div class="experience__list">
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">01</span>
+            <div class="exp-item__body">
+              <h3>WEDDINGS</h3>
+              <p>From the baraat procession to the main stage, Akbar brings infectious energy to every moment of your wedding celebration.</p>
+            </div>
           </article>
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">💍</div>
-            <h3 class="event-card__title">WEDDINGS</h3>
-            <p class="event-card__desc">Make your wedding celebrations even more memorable with powerful Dhol and percussion performances that set the tone for joy.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">02</span>
+            <div class="exp-item__body">
+              <h3>LIVE EVENTS</h3>
+              <p>High-impact live performances that command attention and create unforgettable moments for audiences of every size.</p>
+            </div>
           </article>
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">🎤</div>
-            <h3 class="event-card__title">LIVE MUSIC SHOWS</h3>
-            <p class="event-card__desc">Professional live percussion for concerts, music shows and stage performances that demand exceptional rhythm.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">03</span>
+            <div class="exp-item__body">
+              <h3>PRIVATE EVENTS</h3>
+              <p>Intimate, tailored performances for private gatherings — crafted around your vision, your guests and your vibe.</p>
+            </div>
           </article>
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">🎉</div>
-            <h3 class="event-card__title">PRIVATE PARTIES</h3>
-            <p class="event-card__desc">Bring an exciting live performance to your private celebration — intimate, powerful and tailored to your guests.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">04</span>
+            <div class="exp-item__body">
+              <h3>CORPORATE EVENTS</h3>
+              <p>Professional entertainment that elevates brand events, launches and corporate celebrations with rhythm and precision.</p>
+            </div>
           </article>
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">🏆</div>
-            <h3 class="event-card__title">CORPORATE &amp; SPECIAL EVENTS</h3>
-            <p class="event-card__desc">Professional entertainment for corporate functions, product launches and special occasions that need to impress.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">05</span>
+            <div class="exp-item__body">
+              <h3>CONCERTS</h3>
+              <p>Commanding full-stage concert performances — dynamic, energetic and built to move the crowd from first beat to last.</p>
+            </div>
           </article>
-
-          <article class="event-card" data-reveal>
-            <div class="event-card__icon" aria-hidden="true">🎊</div>
-            <h3 class="event-card__title">FESTIVALS &amp; CELEBRATIONS</h3>
-            <p class="event-card__desc">Traditional rhythm and modern percussion energy for celebrations of every kind — festivals, cultural events and community gatherings.</p>
-            <div class="event-card__line" aria-hidden="true"></div>
+          <article class="exp-item reveal-up" tabindex="0">
+            <span class="exp-item__num" aria-hidden="true">06</span>
+            <div class="exp-item__body">
+              <h3>CELEBRATIONS</h3>
+              <p>Birthdays, festivals, milestones, cultural events — wherever there is a reason to celebrate, Akbar brings the beat.</p>
+            </div>
           </article>
-
         </div>
+      </div>
+    </section>
 
-        <div class="events__more" data-reveal>
-          <div class="events__more-text">AND MANY MORE EVENTS</div>
-          <a href="#booking" class="btn btn--gold btn--magnetic" aria-label="Book Akbar Khan for your event">
-            <span>BOOK FOR YOUR EVENT</span>
-            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <!-- MEDIA -->
+    <section class="media section" id="media" aria-labelledby="media-title">
+      <div class="shell">
+        <div class="media__head reveal-up">
+          <p class="label">05 — MEDIA</p>
+          <h2 id="media-title">WATCH THE ENERGY</h2>
+        </div>
+        <div class="media__reel reveal-clip" id="media-reel">
+          <img src="images/showreel.jpg" alt="Akbar showreel preview — click to watch" class="media__thumb" loading="lazy" />
+          <div class="media__overlay" aria-hidden="true"></div>
+          <button class="media__play" id="media-play" aria-label="Play showreel video">
+            <span class="media__play-ring">
+              <span class="media__play-icon" aria-hidden="true">▶</span>
+            </span>
+            <span class="media__play-label">PLAY SHOWREEL</span>
+          </button>
+        </div>
+        <div class="media__video-wrap" id="media-video-wrap" hidden>
+          <video id="media-video" class="media__video" controls playsinline>
+            <source src="video/showreel.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
+          <button class="media__close-video" id="media-close-video" aria-label="Close video">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="social section" id="social" aria-labelledby="social-title">
+      <div class="shell">
+        <div class="social__head reveal-up">
+          <p class="label">06 — SOCIAL</p>
+          <h2 id="social-title">FOLLOW THE JOURNEY</h2>
+        </div>
+        <div class="social__grid reveal-up">
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 1">
+            <img src="images/insta-1.jpg" alt="Akbar performing live — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 2">
+            <img src="images/insta-2.jpg" alt="Akbar on stage — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 3">
+            <img src="images/insta-3.jpg" alt="Akbar studio portrait — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 4">
+            <img src="images/insta-4.jpg" alt="Akbar on scooter — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 5">
+            <img src="images/insta-5.jpg" alt="Akbar close-up — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a class="social__item" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram post 6">
+            <img src="images/insta-6.jpg" alt="Akbar concert lights — Instagram" loading="lazy" />
+            <span class="social__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
           </a>
         </div>
+        <div class="social__cta reveal-up">
+          <a class="btn btn--amber" href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer">FOLLOW ON INSTAGRAM ↗</a>
+        </div>
       </div>
-
-      <div class="section-bg-number" aria-hidden="true">03</div>
     </section>
 
-    <!-- ══════════════════════════════════════
-         WHY BOOK SECTION
-    ══════════════════════════════════════ -->
-    <section class="why" id="why" aria-labelledby="why-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">THE DIFFERENCE</div>
-          <h2 class="section-heading" id="why-heading">
-            More Than Music.<br/><em>It's an Experience.</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
+    <!-- BEHIND THE RHYTHM -->
+    <section class="behind section" id="about-deep" aria-labelledby="behind-title">
+      <div class="shell behind__grid">
+        <div class="behind__img-col reveal-clip">
+          <img src="images/about.jpg" alt="Akbar — artist portrait" class="behind__img" loading="lazy" />
+          <span class="behind__vline" aria-hidden="true"></span>
         </div>
-
-        <div class="why__grid">
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__num" aria-hidden="true">01</div>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M16 24 L20 20 L24 28 L28 16 L32 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="why-card__title">LIVE ENERGY</h3>
-            <p class="why-card__desc">Every performance is designed to create excitement and real audience engagement — the kind that only live music can deliver.</p>
-          </div>
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__num" aria-hidden="true">02</div>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 36 L24 12 L36 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 28 L33 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="24" cy="12" r="3" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3 class="why-card__title">VERSATILE PERFORMANCE</h3>
-            <p class="why-card__desc">From traditional Dhol to modern Octapad performances — a full spectrum of rhythm adapted to your event style and audience.</p>
-          </div>
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__num" aria-hidden="true">03</div>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="8" y="16" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M16 16 L16 12 C16 10 18 8 24 8 C30 8 32 10 32 12 L32 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="24" cy="26" r="3" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <h3 class="why-card__title">EVENT FLEXIBILITY</h3>
-            <p class="why-card__desc">Performance styles that adapt to weddings, parties, shows and every kind of celebration — no two performances are the same.</p>
-          </div>
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__num" aria-hidden="true">04</div>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M24 8 L28 18 L40 18 L30 26 L34 38 L24 30 L14 38 L18 26 L8 18 L20 18 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="why-card__title">UNFORGETTABLE RHYTHM</h3>
-            <p class="why-card__desc">The goal is to make every event feel more alive — moments that guests carry with them long after the music stops.</p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">04</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         GALLERY SECTION
-    ══════════════════════════════════════ -->
-    <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">THE MOMENTS</div>
-          <h2 class="section-heading" id="gallery-heading">
-            Moments in<br/><em>Rhythm</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="gallery__grid" id="galleryGrid">
-
-          <div class="gallery-item gallery-item--tall" data-cursor="VIEW" tabindex="0"
-               aria-label="Octapad live performance placeholder" data-title="OCTAPAD LIVE">
-            <div class="gallery-item__image gallery-item__image--octapad" role="img" aria-label="Electronic percussion performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">OCTAPAD LIVE</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-cursor="VIEW" tabindex="0"
-               aria-label="Dhol performance at wedding placeholder" data-title="WEDDING DHOL">
-            <div class="gallery-item__image gallery-item__image--dhol" role="img" aria-label="Dhol wedding performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">WEDDING DHOL</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-cursor="VIEW" tabindex="0"
-               aria-label="Birthday party performance" data-title="BIRTHDAY BEATS">
-            <div class="gallery-item__image gallery-item__image--birthday" role="img" aria-label="Live percussion performance at birthday party placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">BIRTHDAY BEATS</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item gallery-item--wide" data-cursor="VIEW" tabindex="0"
-               aria-label="Live concert stage performance placeholder" data-title="STAGE ENERGY">
-            <div class="gallery-item__image gallery-item__image--stage" role="img" aria-label="Live concert stage performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">STAGE ENERGY</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-cursor="VIEW" tabindex="0"
-               aria-label="Crowd interaction during live show" data-title="CROWD ENERGY">
-            <div class="gallery-item__image gallery-item__image--crowd" role="img" aria-label="Audience at live performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">CROWD ENERGY</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-cursor="VIEW" tabindex="0"
-               aria-label="Close-up percussion shot" data-title="CLOSE UP">
-            <div class="gallery-item__image gallery-item__image--tabla" role="img" aria-label="Close-up of tabla performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">CLOSE UP</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item gallery-item--tall" data-cursor="VIEW" tabindex="0"
-               aria-label="Music festival performance placeholder" data-title="FESTIVAL RHYTHM">
-            <div class="gallery-item__image gallery-item__image--festival" role="img" aria-label="Music festival performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">FESTIVAL RHYTHM</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-cursor="VIEW" tabindex="0"
-               aria-label="Private party live performance" data-title="PRIVATE EVENT">
-            <div class="gallery-item__image gallery-item__image--private" role="img" aria-label="Intimate live percussion performance placeholder"></div>
-            <div class="gallery-item__overlay">
-              <div class="gallery-item__info">
-                <span class="gallery-item__title">PRIVATE EVENT</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Lightbox -->
-      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
-        <button class="lightbox__close" id="lightboxClose" aria-label="Close image viewer">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
-        </button>
-        <div class="lightbox__image" id="lightboxImage" aria-live="polite"></div>
-        <div class="lightbox__title" id="lightboxTitle"></div>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">05</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         VIDEO SECTION
-    ══════════════════════════════════════ -->
-    <section class="videos" id="videos" aria-labelledby="videos-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">LIVE IN ACTION</div>
-          <h2 class="section-heading" id="videos-heading">
-            Watch the<br/><em>Energy</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
-        </div>
-
-        <!-- Main Video Feature -->
-        <div class="video-feature" data-reveal data-cursor="PLAY">
-          <div class="video-feature__frame" role="img" aria-label="Main performance video placeholder">
-            <div class="video-feature__bg"></div>
-            <div class="video-feature__overlay"></div>
-            <button class="video-play video-play--lg" aria-label="Play main performance video">
-              <div class="video-play__ring" aria-hidden="true"></div>
-              <div class="video-play__ring video-play__ring--2" aria-hidden="true"></div>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="8,5 19,12 8,19"/></svg>
-            </button>
-            <div class="video-feature__label">
-              <span>FULL LIVE PERFORMANCE</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Cards -->
-        <div class="videos__grid">
-
-          <article class="video-card" data-reveal data-cursor="PLAY">
-            <div class="video-card__frame" role="img" aria-label="Octapad live performance video placeholder">
-              <div class="video-card__bg video-card__bg--1"></div>
-              <div class="video-card__overlay"></div>
-              <button class="video-play" aria-label="Play Octapad live performance video">
-                <div class="video-play__ring" aria-hidden="true"></div>
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="8,5 19,12 8,19"/></svg>
-              </button>
-            </div>
-            <div class="video-card__info">
-              <h3 class="video-card__title">OCTAPAD LIVE</h3>
-              <p class="video-card__desc">Live electronic percussion performance</p>
-            </div>
-          </article>
-
-          <article class="video-card" data-reveal data-cursor="PLAY">
-            <div class="video-card__frame" role="img" aria-label="Dhol performance video placeholder">
-              <div class="video-card__bg video-card__bg--2"></div>
-              <div class="video-card__overlay"></div>
-              <button class="video-play" aria-label="Play Dhol performance video">
-                <div class="video-play__ring" aria-hidden="true"></div>
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="8,5 19,12 8,19"/></svg>
-              </button>
-            </div>
-            <div class="video-card__info">
-              <h3 class="video-card__title">DHOL PERFORMANCE</h3>
-              <p class="video-card__desc">Traditional high-energy Dhol performance</p>
-            </div>
-          </article>
-
-          <article class="video-card" data-reveal data-cursor="PLAY">
-            <div class="video-card__frame" role="img" aria-label="Live show performance video placeholder">
-              <div class="video-card__bg video-card__bg--3"></div>
-              <div class="video-card__overlay"></div>
-              <button class="video-play" aria-label="Play live show performance video">
-                <div class="video-play__ring" aria-hidden="true"></div>
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="8,5 19,12 8,19"/></svg>
-              </button>
-            </div>
-            <div class="video-card__info">
-              <h3 class="video-card__title">LIVE SHOW</h3>
-              <p class="video-card__desc">Stage performance and audience energy</p>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Video Modal Notice -->
-        <p class="videos__notice" data-reveal>
-          Performance videos available upon request — <a href="tel:9274452138" class="link--gold">call 9274452138</a> or <a href="mailto:akbarforYou@gmail.com" class="link--gold">email directly</a> to see live footage.
-        </p>
-
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">06</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         TIMELINE SECTION
-    ══════════════════════════════════════ -->
-    <section class="timeline" id="timeline" aria-labelledby="timeline-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">THE PROCESS</div>
-          <h2 class="section-heading" id="timeline-heading">
-            How It<br/><em>Works</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="timeline__steps">
-
-          <div class="timeline__step" data-reveal>
-            <div class="timeline__step-num" aria-hidden="true">01</div>
-            <div class="timeline__step-connector" aria-hidden="true">
-              <div class="timeline__step-line"></div>
-            </div>
-            <div class="timeline__step-content">
-              <h3 class="timeline__step-title">BOOK</h3>
-              <p class="timeline__step-desc">Tell us about your event — date, location, occasion and what you're looking for.</p>
-            </div>
-          </div>
-
-          <div class="timeline__step" data-reveal>
-            <div class="timeline__step-num" aria-hidden="true">02</div>
-            <div class="timeline__step-connector" aria-hidden="true">
-              <div class="timeline__step-line"></div>
-            </div>
-            <div class="timeline__step-content">
-              <h3 class="timeline__step-title">PLAN</h3>
-              <p class="timeline__step-desc">We discuss performance requirements, setup, timing and everything that makes your event unique.</p>
-            </div>
-          </div>
-
-          <div class="timeline__step" data-reveal>
-            <div class="timeline__step-num" aria-hidden="true">03</div>
-            <div class="timeline__step-connector" aria-hidden="true">
-              <div class="timeline__step-line"></div>
-            </div>
-            <div class="timeline__step-content">
-              <h3 class="timeline__step-title">PERFORM</h3>
-              <p class="timeline__step-desc">Akbar Khan brings the rhythm, energy and excitement — live, powerful and completely unforgettable.</p>
-            </div>
-          </div>
-
-          <div class="timeline__step" data-reveal>
-            <div class="timeline__step-num" aria-hidden="true">04</div>
-            <div class="timeline__step-connector" aria-hidden="true"></div>
-            <div class="timeline__step-content">
-              <h3 class="timeline__step-title">CELEBRATE</h3>
-              <p class="timeline__step-desc">Create unforgettable memories with every beat — the kind of moments that stay with your guests forever.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">07</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         TESTIMONIALS SECTION
-    ══════════════════════════════════════ -->
-    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">CLIENT VOICES</div>
-          <h2 class="section-heading" id="testimonials-heading">
-            What They<br/><em>Say</em>
-          </h2>
-          <div class="section-heading-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="testimonials__grid">
-
-          <blockquote class="testimonial-card" data-reveal>
-            <div class="testimonial-card__quote" aria-hidden="true">"</div>
-            <p class="testimonial-card__text">Add verified client testimonial here.</p>
-            <footer class="testimonial-card__footer">
-              <div class="testimonial-card__avatar" aria-hidden="true">
-                <span>?</span>
-              </div>
-              <div class="testimonial-card__author">
-                <cite class="testimonial-card__name">Client Name</cite>
-                <span class="testimonial-card__event">Birthday Celebration</span>
-              </div>
-            </footer>
-          </blockquote>
-
-          <blockquote class="testimonial-card testimonial-card--featured" data-reveal>
-            <div class="testimonial-card__quote" aria-hidden="true">"</div>
-            <p class="testimonial-card__text">Add verified wedding client testimonial here.</p>
-            <footer class="testimonial-card__footer">
-              <div class="testimonial-card__avatar" aria-hidden="true">
-                <span>?</span>
-              </div>
-              <div class="testimonial-card__author">
-                <cite class="testimonial-card__name">Client Name</cite>
-                <span class="testimonial-card__event">Wedding Celebration</span>
-              </div>
-            </footer>
-          </blockquote>
-
-          <blockquote class="testimonial-card" data-reveal>
-            <div class="testimonial-card__quote" aria-hidden="true">"</div>
-            <p class="testimonial-card__text">Add verified event organizer testimonial here.</p>
-            <footer class="testimonial-card__footer">
-              <div class="testimonial-card__avatar" aria-hidden="true">
-                <span>?</span>
-              </div>
-              <div class="testimonial-card__author">
-                <cite class="testimonial-card__name">Event Organizer</cite>
-                <span class="testimonial-card__event">Live Music Show</span>
-              </div>
-            </footer>
-          </blockquote>
-
-        </div>
-
-        <p class="testimonials__notice" data-reveal>
-          <em>Real client testimonials will be added soon. Contact us to share your experience.</em>
-        </p>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">08</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         SOCIAL SECTION
-    ══════════════════════════════════════ -->
-    <section class="social" id="social" aria-labelledby="social-heading">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <div class="section-eyebrow">SOCIAL</div>
-          <h2 class="section-heading" id="social-heading">
-            Follow the<br/><em>Rhythm</em>
-          </h2>
-          <p class="section-subtext">Follow Akbar Khan for upcoming performances, behind-the-scenes moments and live music.</p>
-          <div class="section-heading-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="social__grid" data-reveal>
-          <div class="social__item social__item--1" aria-label="Social media post placeholder 1"></div>
-          <div class="social__item social__item--2" aria-label="Social media post placeholder 2"></div>
-          <div class="social__item social__item--3" aria-label="Social media post placeholder 3"></div>
-          <div class="social__item social__item--4" aria-label="Social media post placeholder 4"></div>
-          <div class="social__item social__item--5" aria-label="Social media post placeholder 5"></div>
-          <div class="social__item social__item--6" aria-label="Social media post placeholder 6"></div>
-        </div>
-
-        <div class="social__cta" data-reveal>
-          <div class="social__coming-soon">
-            <svg class="social__insta-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-            </svg>
-            <span>Instagram link coming soon</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">09</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         BOOKING SECTION
-    ══════════════════════════════════════ -->
-    <section class="booking" id="booking" aria-labelledby="booking-heading">
-      <div class="booking__bg" aria-hidden="true"></div>
-      <div class="container">
-        <div class="booking__inner">
-
-          <!-- Booking Header -->
-          <div class="booking__header" data-reveal>
-            <div class="section-eyebrow">BOOK NOW</div>
-            <h2 class="section-heading" id="booking-heading">
-              Ready to Book<br/><em>Akbar Khan?</em>
-            </h2>
-            <p class="booking__subtext">Share your event details below. The form is ready for booking integration; for a direct conversation, call <a href="tel:9274452138" class="link--gold">9274452138</a>.</p>
-          </div>
-
-          <div class="booking__content">
-
-            <!-- Form -->
-            <div class="booking__form-wrap" data-reveal="left">
-              <form class="booking-form" id="bookingForm" novalidate aria-label="Event booking request form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="fullName">Full Name <span class="form-required" aria-label="required">*</span></label>
-                    <input class="form-input" type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="Your full name" aria-required="true"/>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="phone">Phone Number <span class="form-required" aria-label="required">*</span></label>
-                    <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+91 00000 00000" aria-required="true"/>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="email">Email Address</label>
-                  <input class="form-input" type="email" id="email" name="email" autocomplete="email" placeholder="your@email.com"/>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="eventType">Event Type <span class="form-required" aria-label="required">*</span></label>
-                    <select class="form-input form-select" id="eventType" name="eventType" required aria-required="true">
-                      <option value="" disabled selected>Select event type</option>
-                      <option value="wedding">Wedding</option>
-                      <option value="birthday">Birthday Party</option>
-                      <option value="live-show">Live Music Show</option>
-                      <option value="private-party">Private Party</option>
-                      <option value="corporate">Corporate Event</option>
-                      <option value="festival">Festival / Celebration</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="eventDate">Event Date <span class="form-required" aria-label="required">*</span></label>
-                    <input class="form-input" type="date" id="eventDate" name="eventDate" required aria-required="true"/>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="location">Event Location <span class="form-required" aria-label="required">*</span></label>
-                  <input class="form-input" type="text" id="location" name="location" required placeholder="City, Venue or Area" aria-required="true"/>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="guests">Expected Number of Guests</label>
-                  <input class="form-input" type="number" id="guests" name="guests" min="1" placeholder="Approx. number of guests"/>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="message">Message / Event Details</label>
-                  <textarea class="form-input form-textarea" id="message" name="message" rows="4" placeholder="Tell us about your event, special requirements or any other details..."></textarea>
-                </div>
-
-                <div class="form-notice" role="note">
-                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-                  This form is ready for a booking-service integration. For now, please call or email Akbar directly to confirm availability.
-                </div>
-
-                <button type="submit" class="btn btn--gold btn--lg btn--magnetic btn--full" aria-label="Send booking request">
-                  <span>SEND BOOKING REQUEST</span>
-                  <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-
-                <div class="form-success" id="formSuccess" role="status" aria-live="polite" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4m0 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <span>Booking requests are not connected yet. Please call 9274452138 or email akbarforYou@gmail.com to confirm your event.</span>
-                </div>
-              </form>
-            </div>
-
-            <!-- Quick Contact -->
-            <div class="booking__quick" data-reveal="right">
-              <div class="quick-contact">
-                <h3 class="quick-contact__heading">QUICK CONTACT</h3>
-                <p class="quick-contact__sub">Prefer a direct conversation?</p>
-
-                <a href="tel:9274452138" class="quick-contact__item" aria-label="Call Akbar Khan at 9274452138">
-                  <div class="quick-contact__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                  <div class="quick-contact__info">
-                    <span class="quick-contact__label">CALL NOW</span>
-                    <span class="quick-contact__value">9274452138</span>
-                  </div>
-                  <svg class="quick-contact__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-
-                <a href="mailto:akbarforYou@gmail.com" class="quick-contact__item" aria-label="Email Akbar Khan at akbarforYou@gmail.com">
-                  <div class="quick-contact__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                  <div class="quick-contact__info">
-                    <span class="quick-contact__label">EMAIL</span>
-                    <span class="quick-contact__value">akbarforYou@gmail.com</span>
-                  </div>
-                  <svg class="quick-contact__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-
-                <div class="quick-contact__divider" aria-hidden="true"></div>
-
-                <div class="quick-contact__events">
-                  <h4 class="quick-contact__events-title">WE PERFORM AT</h4>
-                  <ul class="quick-contact__events-list" role="list">
-                    <li>💍 Weddings</li>
-                    <li>🎂 Birthday Parties</li>
-                    <li>🎤 Live Music Shows</li>
-                    <li>🎉 Private Parties</li>
-                    <li>🏆 Corporate Events</li>
-                    <li>🎊 Festivals &amp; Celebrations</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="section-bg-number" aria-hidden="true">10</div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         FINAL CTA / CONTACT SECTION
-    ══════════════════════════════════════ -->
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-      <div class="contact__bg" aria-hidden="true">
-        <div class="contact__bg-overlay"></div>
-        <div class="contact__rhythm-lines" aria-hidden="true">
-          <div></div><div></div><div></div><div></div><div></div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="contact__inner" data-reveal>
-          <div class="section-eyebrow">LET'S CONNECT</div>
-          <h2 class="contact__heading" id="contact-heading">
-            Have an Event?<br/>
-            <em>Let's Make It Loud.</em>
-          </h2>
-          <p class="contact__subtext">
-            Birthday. Wedding. Live Show. Private Party. Celebration.<br/>
-            Whatever the occasion, bring the rhythm with Akbar Khan.
+        <div class="behind__text reveal-up">
+          <p class="label">07 — THE PERSON</p>
+          <h2 id="behind-title">BEHIND THE RHYTHM</h2>
+          <p>
+            Rhythm has always been more than music for Akbar — it is a language, a feeling, a conversation between performer and audience. From an early age, Akbar was drawn to the pulse of percussion, the raw energy of live performance and the ability of a single beat to transform an atmosphere.
           </p>
+          <p>
+            Performing on Octapad, Dhol and various percussion instruments, Akbar brings a unique combination of technical skill, spontaneous energy and genuine passion to every stage. His style blends the richness of traditional South Asian music with the precision and dynamism of modern live performance.
+          </p>
+          <p>
+            Whether performing at an intimate private gathering or commanding a large wedding stage, Akbar's focus is always the same: to create a moment that the audience will remember long after the music stops.
+          </p>
+          <ul class="behind__details">
+            <li><span>Instruments</span><strong>Octapad · Dhol · Percussion</strong></li>
+            <li><span>Style</span><strong>Energetic · Expressive · Authentic</strong></li>
+            <li><span>Events</span><strong>Weddings · Concerts · Private · Corporate</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="contact__info">
-            <a href="tel:9274452138" class="contact__info-item" aria-label="Call Akbar Khan">
-              <div class="contact__info-label">PHONE</div>
-              <div class="contact__info-value">9274452138</div>
-            </a>
-            <div class="contact__info-sep" aria-hidden="true"></div>
-            <a href="mailto:akbarforYou@gmail.com" class="contact__info-item" aria-label="Email Akbar Khan">
-              <div class="contact__info-label">EMAIL</div>
-              <div class="contact__info-value">akbarforYou@gmail.com</div>
-            </a>
+    <!-- CONTACT -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <div class="contact__head reveal-up">
+          <p class="label">08 — BOOKING</p>
+          <h2 id="contact-title">LET'S MAKE<br/>SOME <em>NOISE.</em></h2>
+          <p class="contact__sub">Available for live performances, weddings, private events, celebrations and collaborations.</p>
+        </div>
+        <div class="contact__layout">
+          <div class="contact__info reveal-up">
+            <h3 class="contact__info-head">CONTACT DETAILS</h3>
+            <ul class="contact__details">
+              <li>
+                <span class="contact__detail-label">Phone</span>
+                <a href="tel:+919274452138" class="contact__detail-val">+91 92744 52138</a>
+              </li>
+              <li>
+                <span class="contact__detail-label">WhatsApp</span>
+                <a href="https://wa.me/919274452138" target="_blank" rel="noopener noreferrer" class="contact__detail-val">+91 92744 52138</a>
+              </li>
+              <li>
+                <span class="contact__detail-label">Email</span>
+                <a href="mailto:akbarforYou@gmail.com" class="contact__detail-val">akbarforYou@gmail.com</a>
+              </li>
+              <li>
+                <span class="contact__detail-label">Instagram</span>
+                <a href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" class="contact__detail-val">@akbarkhanjamnagar</a>
+              </li>
+              <li>
+                <span class="contact__detail-label">YouTube</span>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="contact__detail-val">Akbar on YouTube</a>
+              </li>
+            </ul>
           </div>
-
-          <div class="contact__ctas">
-            <a href="#booking" class="btn btn--gold btn--lg btn--magnetic" aria-label="Book Akbar Khan for your event">
-              <span>BOOK AKBAR KHAN</span>
-              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="tel:9274452138" class="btn btn--outline btn--lg" aria-label="Call Akbar Khan now">
-              <svg class="btn__play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
-              CALL NOW
-            </a>
-          </div>
+          <form class="contact__form reveal-up" id="contact-form" novalidate>
+            <div class="form__row">
+              <div class="form__field">
+                <label for="f-name">Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="Your name" />
+                <span class="form__err" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form__field">
+                <label for="f-email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required placeholder="your@email.com" />
+                <span class="form__err" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__field">
+                <label for="f-phone">Phone / WhatsApp</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="+91 00000 00000" />
+              </div>
+              <div class="form__field">
+                <label for="f-type">Event Type <span aria-hidden="true">*</span></label>
+                <div class="form__select-wrap">
+                  <select id="f-type" name="event_type" required>
+                    <option value="" disabled selected>Select event type</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="concert">Concert</option>
+                    <option value="private">Private Event</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="celebration">Celebration</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="form__select-arrow" aria-hidden="true">↓</span>
+                </div>
+                <span class="form__err" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__field">
+                <label for="f-date">Event Date</label>
+                <input type="date" id="f-date" name="event_date" />
+              </div>
+              <div class="form__field">
+                <label for="f-location">Location</label>
+                <input type="text" id="f-location" name="location" placeholder="City / Venue" />
+              </div>
+            </div>
+            <div class="form__field form__field--full">
+              <label for="f-message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="f-message" name="message" rows="5" required placeholder="Tell Akbar about your event…"></textarea>
+              <span class="form__err" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form__submit">
+              <button type="submit" class="btn btn--amber">SEND BOOKING REQUEST →</button>
+            </div>
+            <div class="form__success" id="form-success" hidden role="alert">
+              <span aria-hidden="true">✓</span>
+              <strong>Message sent.</strong> Akbar will be in touch shortly.
+            </div>
+          </form>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
-    <div class="footer__rhythm-line" aria-hidden="true">
-      <div class="footer__rhythm-inner" id="footerRhythm"></div>
+    <div class="shell footer__inner">
+      <div class="footer__brand">
+        <a class="footer__logo" href="#home" aria-label="Back to top">AKBAR</a>
+        <p class="footer__sub">MUSICIAN · PERCUSSIONIST · LIVE PERFORMER</p>
+        <div class="footer__amber-line" aria-hidden="true"><span></span></div>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/akbarkhanjamnagar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a href="https://wa.me/919274452138" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+        <a href="mailto:akbarforYou@gmail.com" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
     </div>
-
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <a href="#home" class="footer__logo" aria-label="Akbar Khan - Back to top">
-            <span class="footer__logo-main">AKBAR KHAN</span>
-            <span class="footer__logo-sub">LIVE PERCUSSIONIST &nbsp;•&nbsp; OCTAPAD &nbsp;•&nbsp; DHOL &nbsp;•&nbsp; MUSIC PERFORMER</span>
-          </a>
-        </div>
-
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <ul class="footer__links" role="list">
-            <li><a href="#home" class="footer__link">Home</a></li>
-            <li><a href="#about" class="footer__link">About</a></li>
-            <li><a href="#instruments" class="footer__link">Instruments</a></li>
-            <li><a href="#events" class="footer__link">Events</a></li>
-            <li><a href="#gallery" class="footer__link">Gallery</a></li>
-            <li><a href="#videos" class="footer__link">Videos</a></li>
-            <li><a href="#contact" class="footer__link">Contact</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer__contact">
-          <a href="tel:9274452138" class="footer__contact-item" aria-label="Call Akbar Khan">9274452138</a>
-          <a href="mailto:akbarforYou@gmail.com" class="footer__contact-item" aria-label="Email Akbar Khan">akbarforYou@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <div class="footer__divider" aria-hidden="true"></div>
-        <p class="footer__copy">© 2026 Akbar Khan. All Rights Reserved.</p>
-        <div class="footer__badge">
-          <span>WEDDING</span>
-          <span class="footer__badge-sep" aria-hidden="true">•</span>
-          <span>BIRTHDAY</span>
-          <span class="footer__badge-sep" aria-hidden="true">•</span>
-          <span>LIVE SHOWS</span>
-          <span class="footer__badge-sep" aria-hidden="true">•</span>
-          <span>PRIVATE EVENTS</span>
-        </div>
-      </div>
+    <div class="footer__bottom shell">
+      <p>© 2026 AKBAR. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 
-  <!-- Mobile Sticky Book CTA -->
-  <div class="mobile-book-cta" id="mobileBookCta" aria-label="Mobile booking shortcut">
-    <a href="tel:9274452138" class="mobile-book-cta__call" aria-label="Call Akbar Khan">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
-      CALL
-    </a>
-    <a href="#booking" class="mobile-book-cta__book" aria-label="Book Akbar Khan">BOOK NOW</a>
-  </div>
-
-  <!-- Main JS -->
-  <script src="js/main.js?v=20261003" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
